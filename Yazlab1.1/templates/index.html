@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <title>Ucuza.com</title>
+</head>
+<body >
+
+<h2 style="text-align:center;font-size:60px;color:#003153;">Ucuza.com'a Hoşgeldiniz..</h2>
+<p style="text-align:center;font-size:30px;color:#003153;">Yazlab.com'a giriş yapmak için</p><a style="font-size:20px;margin-left:715px;display:inline-block;color:#003153;" href="/view.html"><strong>tıklayınız</strong></a>
+
+<div class="row row-cols-4" >
+         {% for row in rows %}
+  <div  class="col-md-4">
+            <div class="box" >
+                <div class="our-services settings">
+                    <img style="width:150px;" src={{row["resim"]}}>
+                    <h4>{{row["marka"]}}</h4>
+                      <p class="card-text">Model:{{row["model_no"]}}</p>
+                      <p class="card-text">Ram:{{row["ram"]}}</p>
+                      <p class="card-text">İşletim sistemi:{{row["isletim_sistemi"]}}</p>
+                      <p class="card-text">İşlemci tipi:{{row["islemci_tipi"]}}</p>
+                      <p class="card-text">İşlemci modeli:{{row["islemci_nesli"]}}</p>
+                      <p class="card-text">Disk türü:{{row["disk_tur"]}}</p>
+                      <p class="card-text">Disk kapasitesi:{{row["disk_boyut"]}}</p>
+                      <p class="card-text">Ekran boyutu:{{row["ekran_boyut"]}}</p>
+                      <p class="card-text"> Fiyat:{{row["fiyat"]}}</p>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+
+
+
+
+    <title>YAZLAB.COM</title>
+</head>
+<body>
+   <!doctype html>
+<html>
+   <body style="background-color:#8f8f8f;">
+<nav style="background-color:#003153;" class="navbar navbar-expand-sm ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">YAZLAB.COM</a>
+    <a  style="width:150px;" href="/view.html/artan.html" class="btn btn-outline-info btn-sm">artan fiyat</a>
+      <a style="width:150px;margin-left:10px;" href="/view.html/azalan.html" class="btn btn-outline-info btn-sm">azalan fiyat</a>
+      <a class="class"></a>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <form id="live-search" action="" class="styled" method="post">
+       <fieldset>
+        <input style="width:300px; margin-left:840px;" type="text" class="text-input" id="filter" placeholder="Laptop ismi veya özelliği giriniz.." value="" />
+        <span id="filter-count"></span>
+       </fieldset>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="row row-cols-4">
+         {% for row in rows %}
+  <div class="col-md-4">
+            <div class="box">
+                <div class="our-services settings">
+                    <img style="width:150px;" src={{row["resim"]}}>
+                    <h4>{{row["marka"]}}</h4>
+                      <p class="card-text">Ram:{{row["ram"]}}</p>
+                      <p class="card-text">İşletim sistemi:{{row["isletim_sistemi"]}}</p>
+                      <p class="card-text">İşlemci tipi:{{row["islemci_tipi"]}}</p>
+                      <p class="card-text">İşlemci modeli:{{row["islemci_nesli"]}}</p>
+                      <p class="card-text">Disk türü:{{row["disk_tur"]}}</p>
+                      <p class="card-text">Disk kapasitesi:{{row["disk_boyut"]}}</p>
+                      <p class="card-text">Ekran boyutu:{{row["ekran_boyut"]}}</p>
+                      <p class="card-text"> Fiyat:{{row["fiyat"]}}</p>
+                      <a href={{row["link"]}} class="btn btn-outline-info">{{row["Site"]}}</a>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+
+</div>
+
+
+<script>https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css</script>
+<script>https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js</script>
+<script>https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js</script>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+    $("#filter").keyup(function(){
+        var filter = $(this).val(), count = 0;
+        $("div div").each(function(){
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).fadeOut();
+
+            } else {
+                $(this).show();
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+   </body>
+</html>
+</body>
+</html>
